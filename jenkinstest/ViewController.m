@@ -8,7 +8,10 @@
 
 #import "ViewController.h"
 
+static NSString *const TIME_COMPILE = @__TIME__;
+
 @interface ViewController ()
+@property (weak, nonatomic) IBOutlet UILabel *timeCompileLabel;
 
 @end
 
@@ -17,6 +20,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    
+#if BG_COLOR
+    self.view.backgroundColor = [UIColor greenColor];
+#endif
+    
+    self.timeCompileLabel.text = TIME_COMPILE;
+    
 }
 
 - (void)didReceiveMemoryWarning {
